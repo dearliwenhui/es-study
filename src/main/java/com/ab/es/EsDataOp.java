@@ -146,6 +146,8 @@ public class EsDataOp {
                 "  \"age\": 31\n" +
                 "}";
         request.source(json, XContentType.JSON);
+        //设置routing，routing参数一样，数据进入到同一个分片中
+        request.routing("class1");
         client.index(request, RequestOptions.DEFAULT);
     }
 }
